@@ -1,0 +1,51 @@
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+a{
+    text-decoration:none;
+    color:gray;
+}
+a:hover{
+    color:red;
+}
+</style>
+
+<h1>Building Rails from Scratch</h1>
+
+<a href = "http://localhost:3000/ads/new">Add new Item</a>
+<br/><br/>
+<table>
+
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th colspan = "3">Actions</th>
+    </tr>
+
+
+    <% @all_ads.each do |one_ad|%>
+    <tr>
+        <td><%=one_ad.name%></td>
+        <td><%=one_ad.price%></td>
+         <td><a href = "http://localhost:3000/ads/<%=one_ad.id%>">Show</a></td>
+         <td><a href = "http://localhost:3000/ads/<%=one_ad.id%>/delete">Delete</a></td>
+         <td><a href = "http://localhost:3000/ads/<%=one_ad.id%>/edit">Update</a></td>
+        </tr>
+
+
+    <%end%>
+</table>
